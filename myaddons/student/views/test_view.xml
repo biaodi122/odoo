@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="test_act_window" model="ir.actions.act_window">
+        <field name="name">测试</field>
+        <field name="res_model">test</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="meun_test"
+              name="测试"
+              parent="student.menu_root"
+              action="test_act_window"
+              sequence="60"/>
+</odoo>
+
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record  id="view_stock_quant_tree_inherit"  model="ir.ui.view">
+<!--        视图名称-->
+        <field name="name">stock.quant.tree.inherit</field>
+<!--        关联模型-->
+        <field name="model">stock.quant</field>
+<!--        所继承视图id-->
+        <field name="inherit_id"  ref="stock.view_stock_quant_tree_editable"/>
+        <field name="arch" type="xml">
+            <field name="location_id" position="after">
+                <field name="country_id"/>
+            </field>
+        </field>
+    </record>
+
+    <data>
+        <!-- 继承原有的stock.quant视图 -->
+        <record id="stock_quant_search_inherit" model="ir.ui.view">
+
+            <field name="name">stock.quant.search.inherit</field>
+
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.quant_search_view"/>
+            <!-- 在原有视图中添加搜索面板 -->
+            <field name="arch" type="xml">
+                <search position="inside">
+                    <searchpanel>
+<!--                        定义搜索面板字段，显示名称为位置 ，select设置多选  enable_counters显示计数-->
+                        <field name="location_id" string="位置" enable_counters="1"  select = 'multi'/>
+                        <field name="product_id" string="产品" enable_counters="1"/>
+                        <field name="warehouse_id"   string="仓库"  enable_counters="1"  select = 'multi'/>
+                        <field name="product_categ_id" string="产品类别" enable_counters="1"  select = 'multi'/>
+
+                    </searchpanel>
+
+
+                </search>
+            </field>
+        </record>
+    </data>
+
+
+</odoo>

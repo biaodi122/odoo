@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record  id="test1_act_window" model="ir.actions.act_window">
+        <field name="name">你好</field>
+        <field name="res_model">test1</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_test1"
+              name="测试1"
+              parent="student.menu_root"
+              action="test1_act_window"
+              sequence="99"
+    />
+</odoo>
