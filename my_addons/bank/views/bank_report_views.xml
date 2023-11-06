@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+    <record id="bane_report_tree_view" model="ir.ui.view">
+      <field name="name">产品仓库数量</field>
+      <field name="model">bank.report</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="product_id" string="产品名"/>
+          <field name="count" string="总数"/>
+          <field name="warehouse1" string="仓库1"/>
+          <field name="warehouse2" string="仓库2"/>
+          <field name="warehouse3" string="仓库3"/>
+          <field name="warehouse4" string="仓库4"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="bank_report_act_window" model="ir.actions.act_window">
+      <field name="name">产品仓库数量</field>
+      <field name="res_model">bank.report</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="bank_report_sec_menu_action"
+                sequence="20"
+                name="数量"
+                parent="stock.menu_warehouse_report"
+                action="bank_report_act_window"/>
+
+  </data>
+</odoo>
+

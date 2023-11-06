@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+      <record id="bank_quant_tree_view" model="ir.ui.view">
+        <field name="name">位置信息</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="after">
+                        <field name="storehouse_country_id" />
+                </xpath>
+        </field>
+      </record>
+
+      <record id="stock_quant_search_view" model="ir.ui.view">
+          <field name="name">搜索面板</field>
+          <field name="model">stock.quant</field>
+          <field name="inherit_id" ref="stock.quant_search_view"/>
+          <field name="arch" type="xml">
+              <search position="inside">
+                  <searchpanel>
+                      <field name="location_id" icon="fa-filter" string="位置" select="multi" enable_counters="1"/>
+                      <field name="product_id" icon="fa-filter" string="产品" select="multi" enable_counters="1"/>
+                      <field name="warehouse_id" icon="fa-filter" string="仓库" select="multi" enable_counters="1"/>
+                      <field name="product_categ_id" icon="fa-filter" string="类别" select="multi" enable_counters="1"/>
+                  </searchpanel>
+              </search>
+          </field>
+      </record>
+
+  </data>
+</odoo>
+

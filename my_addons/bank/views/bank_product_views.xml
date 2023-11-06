@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <data>
+
+    <record id="bank_product_form_view" model="ir.ui.view">
+      <field name="name">库存产品</field>
+      <field name="model">product.template</field>
+<!--        # 你所继承的model-->
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+<!--        # 你所继承视图的id，模块名.上视图id product.product_template_form_view-->
+      <field name="arch" type="xml">
+<!--          <xpath expr="//group[@name='group_standard_price']" position="after">-->
+<!--              <group sting="Supplier Information">-->
+<!--                  <field name="major_supplier_ids"/>-->
+<!--              </group>-->
+<!--          </xpath>-->
+<!--          定位到你要更改视图的位置，根据position的状态来判断你要在你定位的哪里进行更改，例如after就是定位之后插入-->
+          <group name="group_standard_price" position="after">
+              <group string="主要供應商">
+                  <field name="major_supplier_ids"/>
+<!--                  <field name="storehouse_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>-->
+<!--                  <field name="storehouse_country"/>-->
+<!--                  <field name="supplierinfo_ids"/>-->
+              </group>
+              <group string="库存数量">
+                  <field name="china_inventory"/>
+                  <field name="america_inventory"/>
+              </group>
+          </group>
+
+          <page name="general_information" position="after">
+              <page string="供应商信息" name="product_supplierinfo">
+                  <sheet>
+                        <field name="supplierinfo_id"/>
+                  </sheet>
+              </page>
+          </page>
+
+      </field>
+
+     </record>
+
+  </data>
+</odoo>
+
